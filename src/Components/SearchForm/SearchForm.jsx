@@ -95,7 +95,7 @@ const SearchForm = ({ onSearch }) => {
 
     try {
       const response = await axios.request(options)
-      if (response.status === false) {
+      if (response?.data?.status === false) {
         setSnackbarMessage("Check API")
         setSnackbarOpen(true)
       }

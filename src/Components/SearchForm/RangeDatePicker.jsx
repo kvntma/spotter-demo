@@ -13,7 +13,7 @@ const RangeDatePicker = ({ onDateChange, onClose }) => {
   const [selected, setSelected] = useState({ from: undefined, to: undefined })
 
   const footer =
-    selected.from && selected.to
+    selected?.from && selected?.to
       ? `Departure ${dayjs(selected.from).format("YYYY-MM-DD")} to ${dayjs(
           selected.to
         ).format("YYYY-MM-DD")}`
@@ -21,11 +21,11 @@ const RangeDatePicker = ({ onDateChange, onClose }) => {
 
   const handleSelect = (range) => {
     setSelected(range)
-    if (range.from && range.to) {
+    if (range?.from && range?.to) {
       onDateChange(range)
+      setDepartureDate(range.from)
+      setReturnDate(range.to)
     }
-    setDepartureDate(dayjs(selected.from).format("YYYY-MM-DD"))
-    setReturnDate(dayjs(selected.to).format("YYYY-MM-DD"))
   }
 
   return (
@@ -68,7 +68,7 @@ const DatePickerWithIcon = ({ onError }) => {
 
   const handleDateChange = (range) => {
     setSelectedRange(range)
-    if (range.from && range.to) {
+    if (range?.from && range?.to) {
       onError(range, "")
     }
   }

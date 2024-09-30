@@ -1,5 +1,5 @@
 import { useState } from "react"
-import PropTypes from "prop-types"
+
 import {
   Card,
   CardContent,
@@ -26,6 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }))
 
+// eslint-disable-next-line react/prop-types
 const FlightCard = ({ itinerary }) => {
   const [expanded, setExpanded] = useState(false)
 
@@ -207,53 +208,6 @@ const FlightCard = ({ itinerary }) => {
       </Collapse>
     </Card>
   )
-}
-FlightCard.propTypes = {
-  itinerary: PropTypes.shape({
-    legs: PropTypes.arrayOf(
-      PropTypes.shape({
-        departure: PropTypes.string,
-        arrival: PropTypes.string,
-        stopCount: PropTypes.number,
-        origin: PropTypes.shape({
-          name: PropTypes.string,
-        }),
-        destination: PropTypes.shape({
-          name: PropTypes.string,
-        }),
-        segments: PropTypes.arrayOf(
-          PropTypes.shape({
-            departure: PropTypes.string,
-            arrival: PropTypes.string,
-            durationInMinutes: PropTypes.number,
-            origin: PropTypes.shape({
-              name: PropTypes.string,
-              displayCode: PropTypes.string,
-            }),
-            destination: PropTypes.shape({
-              name: PropTypes.string,
-              displayCode: PropTypes.string,
-            }),
-            marketingCarrier: PropTypes.shape({
-              name: PropTypes.string,
-            }),
-            flightNumber: PropTypes.string,
-          })
-        ),
-        carriers: PropTypes.shape({
-          marketing: PropTypes.arrayOf(
-            PropTypes.shape({
-              logoUrl: PropTypes.string,
-              name: PropTypes.string,
-            })
-          ),
-        }),
-      })
-    ),
-    price: PropTypes.shape({
-      formatted: PropTypes.string,
-    }),
-  }),
 }
 
 export default FlightCard

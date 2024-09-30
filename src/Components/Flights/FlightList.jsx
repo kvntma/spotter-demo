@@ -1,22 +1,24 @@
 import { useState } from "react"
 import { Pagination, Box, Typography } from "@mui/material"
-import PropTypes from "prop-types"
 import FlightCard from "./FlightCard"
 
+// eslint-disable-next-line react/prop-types
 const FlightList = ({ flights }) => {
   const { data } = flights ?? {}
   const { itineraries } = data ?? {}
-  const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 20
+  const [currentPage, setCurrentPage] = useState(1) // Current page number
+  const itemsPerPage = 20 // Number of items to show per page
 
-  // should move to helper function if time available + test
+  // Calculate total pages
   const totalPages = Math.ceil(itineraries?.length / itemsPerPage) || 1
 
+  // Slice the data array to only show items for the current page
   const currentItems = itineraries?.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   )
 
+  // Handle page change
   const handlePageChange = (event, value) => {
     setCurrentPage(value)
   }
@@ -58,18 +60,6 @@ const FlightList = ({ flights }) => {
       />
     </Box>
   )
-}
-FlightList.propTypes = {
-  flights: PropTypes.shape({
-    data: PropTypes.shape({
-      itineraries: PropTypes.arrayOf(
-        PropTypes.shape({
-          name: PropTypes.string,
-          price: PropTypes.number,
-        })
-      ),
-    }),
-  }),
 }
 
 export default FlightList
