@@ -1,0 +1,63 @@
+/* RangeDatePicker.css */
+.day-picker-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-picker {
+  background-color: #222;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.day-picker .rdp {
+  color: #333;
+}
+
+.day-picker .rdp-root {
+  background-color: #222;
+  --rdp-accent-color: lightblue;
+  --rdp-accent-background-color: #272740; /* Set accent background color to black */
+}
+
+.day-picker .rdp-day_selected {
+  background-color: #1976d2;
+  color: #272740;
+}
+
+.day-picker .rdp-chevron {
+  display: inline-block;
+  fill: #d3d3d3;
+}
+
+.day-picker .rdp-day_today {
+  font-weight: bold;
+  color: #272740;
+}
+
+.day-picker .rdp-day_range {
+  background-color: #272740;
+  color: #fff; /* Optional: Change text color for better contrast */
+}
+
+.day-picker .rdp-range_middle {
+  background-color: #272740;
+}
+
+.day-picker .rdp-range_start {
+  background-color: #272740;
+}
+
+.day-picker .rdp-range_end {
+  background-color: #272740;
+}
